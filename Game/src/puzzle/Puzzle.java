@@ -32,7 +32,7 @@ public class Puzzle {
 	public void draw(Graphics2D g){
 		g.drawImage(image, (GamePanel.WIDTH/Puzzles.WIDTH)*x, (GamePanel.HEIGHT/Puzzles.HEIGTH)*y, null);
 		g.setColor(new Color(80,80,80));
-		g.drawRect(x*image.getWidth(), y*image.getHeight(), image.getWidth(), image.getHeight());
+		//g.drawRect(x*image.getWidth(), y*image.getHeight(), image.getWidth(), image.getHeight());
 	}
 
 

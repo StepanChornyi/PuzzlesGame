@@ -1,5 +1,6 @@
 package puzzle;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -15,21 +16,31 @@ public class PuzzleMoveController {
 
 	private Puzzles puzzles;
 	private MovePuzzle movePuzzle;
+	
+	private Background back;
+	private Web web;
 
 	public PuzzleMoveController() {
-		puzzles = new Puzzles("src/souce/lemon.jpg");
+		puzzles = new Puzzles("src/souce/fruit.jpg");
 		movePuzzle = new MovePuzzle(puzzles.getOnePuzzle(0, 0).getImage().getWidth(),
 				puzzles.getOnePuzzle(0, 0).getImage().getHeight());
+		back = new Background(new Color(50, 50, 50));
+		web= new Web(new Color(80,80,80));
 	}
 
 	public void update() {
 		puzzles.update();
 		movePuzzle.update();
+		back.update();
+		web.update();
 	}
 
 	public void draw(Graphics2D g) {
+		back.draw(g);
 		puzzles.draw(g);
+		web.draw(g);
 		movePuzzle.draw(g);
+		
 	}
 
 	private void take(int mouseX, int mouseY) {

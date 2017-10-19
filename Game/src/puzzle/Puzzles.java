@@ -7,9 +7,9 @@ public class Puzzles {
 
 	private List<Puzzle> puzzles;
 	
-	public static final int WIDTH = 4;
+	public static final int WIDTH = 8;
 	
-	public static final int HEIGTH = 4;
+	public static final int HEIGTH = 8;
 	
 	
 

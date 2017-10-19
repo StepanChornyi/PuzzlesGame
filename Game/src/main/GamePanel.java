@@ -1,5 +1,5 @@
 package main;
-import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,7 +11,6 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import puzzle.Background;
 import puzzle.PuzzleMoveController;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -19,8 +18,8 @@ public class GamePanel extends JPanel implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	public static int WIDTH = 401;
-	public static int HEIGHT = 401;
+	public static int WIDTH = 400;
+	public static int HEIGHT = 400;
 
 	private Thread thread;
 	private int FPS;
@@ -28,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
 	private BufferedImage image;
 	private Graphics2D g;
 	
-	private Background back;
+	
 	private PuzzleMoveController controller;
 	
 	
@@ -51,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
 		g = (Graphics2D) image.getGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		back = new Background(new Color(50, 50, 50));
+		
 		for (KeyListener keyListener : controller.getKeyListeners()) {
 			addKeyListener(keyListener);
 		}
@@ -92,12 +91,12 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 
 	public void gameUpdate() {
-		back.update();
+		
 		controller.update();
 	}
 
 	public void gameRender() {
-		back.draw(g);
+		
 		controller.draw(g);
 	}
 
